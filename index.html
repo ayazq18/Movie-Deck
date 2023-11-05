@@ -1,1 +1,46 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="/">
+            Movie Deck
+        </a>
+        
+    </header>
+    <div class="search-bar">
+        <input onkeyup="betterFunction()" id="search-input" type="text" name="search" placeholder="search by name...." autocomplete="off">
+        <button type="submit" id="search-button">Search</button>
+    </div>
+    <div class="sorting-options">
+        <button id="sort-by-date">Sort by date (oldest to latest)</button>
+        <button id="sort-by-rating">Sort by rating (least to most)</button>
+    </div>
+    <div class="tabs">
+        <button class="all-tab" id="active-tab">All</button>
+        <button class="favorites-tab">Favorites</button>
+    </div>
+    <div class="movie-list-pagination-btns">
+        <ul id="movies-list">
+
+        </ul>
+    </div>
+    <div class="pagination">
+        <button id="prev-button">Previous</button>
+        <button id="page-number-button">Current Page: 1</button>
+        <button id="next-button">Next</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Movie Deck</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/68129f478c.js" crossorigin="anonymous"></script>
+    <script src="App.js"></script>
+</body>
+</html>
