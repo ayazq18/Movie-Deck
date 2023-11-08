@@ -15,7 +15,7 @@
         
     </header>
     <div class="search-bar">
-        <input onkeyup="betterFunction()" id="search-input" type="text" name="search" placeholder="search by name...." autocomplete="off">
+        <input id="search-input" type="text" name="search" placeholder="search by name...." autocomplete="off">
         <button type="submit" id="search-button">Search</button>
     </div>
     <div class="sorting-options">
@@ -23,15 +23,15 @@
         <button id="sort-by-rating">Sort by rating (least to most)</button>
     </div>
     <div class="tabs">
-        <button class="all-tab" id="active-tab">All</button>
-        <button class="favorites-tab">Favorites</button>
+        <button id="all-tab" class="active-tab">All</button>
+        <button id="favorites-tab">Favorites</button>
     </div>
     <div class="movie-list-pagination-btns">
         <ul id="movies-list">
 
         </ul>
     </div>
-    <div class="pagination">
+    <div id="pagination">
         <button id="prev-button">Previous</button>
         <button id="page-number-button">Current Page: 1</button>
         <button id="next-button">Next</button>
