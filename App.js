@@ -50,12 +50,12 @@ const renderMovies = (movies) => {
                     <i class="fav-icon fa-regular fa-heart fa-2xl ${
                       favmovielist.includes(title) ? "fa-solid" : null
                     }" 
-                    data-adfar="${title}" ></i>
+                    data-ayaz="${title}" ></i>
                 </section>`;
     moviesList.appendChild(listItem);
     const faviconbtn = listItem.querySelector(".fav-icon");
     faviconbtn.addEventListener("click", (event) => {
-      let id = event.target.dataset.adfar;
+      let id = event.target.dataset.ayaz;
       console.log(id);
       if (faviconbtn.classList.contains("fa-solid")) {
         removeMovieNameFromLocalStorage(id);
@@ -267,6 +267,31 @@ const onsearchChange = async (event) => {
     await searchMovies(value);
   }
 };
-searchInput.addEventListener("input", () => {
-  onsearchChange(event);
+
+//debounce
+// function debounce(func, delay){
+//     let timer;
+//     return (event)=>{
+//         clearTimeout(timer);
+//         timer=setTimeout(() => {
+//             func(event);
+//         }, delay);
+//     }
+// }
+
+function throttle(func, delay){
+    let lastCall = 0;
+    return (event)=>{
+       let now = Date.now();
+       if(now - lastCall >= delay){
+        func(event);
+        lastCall = now;
+       }
+    }
+}
+const throttlesearch = throttle(onsearchChange, 1000);
+// const debouncesearch = debounce(onsearchChange, 1000);
+
+searchInput.addEventListener("input", (event) => {
+  throttlesearch(event);
 });
